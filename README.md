@@ -70,6 +70,7 @@ flowchart TB
 - [第 5 章：路由 + BGP](./05-路由与BGP.md)
 - [第 6 章：链路层 + 应用层（HTTP/DNS/TLS）](./06-链路层与应用层.md)
 - [第 7 章：实战排查思维框架](./07-实战排查思维框架.md)
+- [第 8 章：System Design 入门 + URL 短链接案例](./08-System-Design入门与URL短链接案例.md)
 
 ## 使用说明
 
