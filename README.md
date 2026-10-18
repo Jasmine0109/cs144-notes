@@ -75,3 +75,4 @@ flowchart TB
 
 - 每章的笔记底部都有一个 **「我不懂的点 & 问答记录」** 板块，是我边学边积累的真实困惑，比正文更有参考价值。
 - 框架图用 [Mermaid](https://mermaid.js.org/) 语法书写，在 GitHub 上能直接渲染成图。
+- **术语约定**：所有关键术语都采用「中文 English」中英对照格式（例如：应用层 Application Layer、端口 Port、封装 Encapsulation），方便阅读英文文档/论文。
