@@ -155,6 +155,17 @@ key-value pair 就是**字典**——Python 叫 `dict`、Java 叫 `HashMap`、�
 
 > Redis 只是实现 cache 的**一种工具**（存 key-value）；CDN、浏览器缓存也是 cache（存文件）。Cache 是"角色"，Redis 是"实现"。
 
+**深层真相：所有缓存本质都是 key→value 映射。** CDN 也用 key（URL 路径）来找文件：
+
+| 缓存 | key | value |
+|---|---|---|
+| Redis | 短码 Ab3X9 | 长链接字符串 |
+| CDN | URL 路径 /image.png | 文件内容 |
+| 浏览器缓存 | URL | 网页/图片 |
+| DNS 缓存 | 域名 | IP |
+
+**"快"的来源不同：** Redis 快靠**内存**（比磁盘快）；CDN 快靠**地理近**（比源站近）。"key"负责"怎么找到数据"，"快"来自"数据离你近/存储更快"。
+
 ### 水平 vs 纵向扩展 + 分片
 
 - **纵向扩展（Scale up）**＝把单台机器变强（加 CPU/内存），有上限。类比：把一个人练成大力士。
