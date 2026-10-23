@@ -346,7 +346,42 @@ B 只能二选一：
 读远多于写       → 需要缓存扛读流量
 ```
 
-### 第 3~7 步：待续（API 设计、数据模型、架构、深入、扩展）
+### 第 3 步：API 设计
+
+**接口 1：生成短链接**
+
+```http
+POST /api/v1/urls
+{ "longUrl": "https://www.amazon.com/..." }
+```
+→ `{ "shortUrl": "https://tiny.ly/Ab3X9" }`
+
+**接口 2：访问短链接（重定向）**
+
+```http
+GET /Ab3X9
+```
+→ `302 Found` + `Location: https://www.amazon.com/...`
+
+**关键：** 生成用 POST（提交数据）→ 201；访问用 GET（查数据）→ 302 重定向（不是 200）。
+
+### 第 4 步：数据模型
+
+**存什么：** 核心就一条映射——短码 → 长链接。
+
+| 字段 | 说明 |
+|---|---|
+| shortCode | 短码（主键） |
+| longUrl | 长链接 |
+| createdAt / expiresAt / userId | 可选元数据 |
+
+**数据结构：** 键值对（key-value）：`"Ab3X9" → "https://..."`
+
+**用什么数据库：** NoSQL 键值数据库（Redis/DynamoDB/Cassandra），因为：数据就是键值对、读多写少、要水平扩展分片。
+
+**存哪：** 写→主库；读→缓存（Redis）+ 多个读副本。
+
+### 第 5~7 步：待续（架构、深入、扩展）
 
 ---
 
