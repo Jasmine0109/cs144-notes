@@ -85,6 +85,52 @@
 
 ---
 
+## 术语速查表 & 数据库类型
+
+### 关键术语（中英对照）
+
+| 中文 | 英文 | 解释 |
+|---|---|---|
+| 日活 | DAU（Daily Active Users） | 每天活跃用户数 |
+| 每秒查询数 | QPS（Queries Per Second） | 每秒处理多少请求 |
+| 每秒事务数 | TPS（Transactions Per Second） | 每秒完成多少事务 |
+| 负载均衡 | Load Balancer（LB） | 把请求分发到多台服务器 |
+| 缓存 | Cache | 热点数据放内存 |
+| 内容分发网络 | CDN | 就近缓存内容 |
+| 副本 | Replica | 数据库的复制品 |
+| 主库/从库 | Primary / Replica | 主库写、从库读 |
+| 索引 | Index | 数据库的目录，加速查找 |
+| 分片 | Sharding | 数据切分到多台机器 |
+| 水平扩展 | Horizontal Scaling（Scale out） | 加更多台机器 |
+| 纵向扩展 | Vertical Scaling（Scale up） | 把单台机器变强 |
+| 重定向 | Redirect | 跳转到另一个地址 |
+| 键值对 | Key-Value | 一个 key 对应一个 value |
+| 单点故障 | SPOF（Single Point of Failure） | 一处挂全挂 |
+| 高可用 | HA（High Availability） | 服务几乎不挂 |
+| 消息队列 | Message Queue（MQ） | 缓冲写请求 |
+| 幂等 | Idempotent | 重复执行结果不变 |
+
+### 数据库类型
+
+| 类别 | 代表 | 适合什么 |
+|---|---|---|
+| SQL（关系型） | MySQL、PostgreSQL | 结构化、要事务、要 join（订单/账户） |
+| NoSQL-键值 | Redis、DynamoDB | 简单映射（短码→长链接），超快 |
+| NoSQL-文档 | MongoDB | JSON 文档、schema 灵活 |
+| NoSQL-列族 | Cassandra、HBase | 海量写入、时序数据（监控/IoT） |
+| NoSQL-图 | Neo4j | 关系复杂的数据（社交网络/推荐） |
+| NoSQL-搜索 | Elasticsearch | 全文搜索 |
+
+> NoSQL 不是某个数据库，而是"非关系型"这一大类。key-value 用 NoSQL 键值库（Redis），因为键值对正是它的设计目标，且易水平扩展。
+
+### 水平 vs 纵向扩展 + 分片
+
+- **纵向扩展（Scale up）**＝把单台机器变强（加 CPU/内存），有上限。类比：把一个人练成大力士。
+- **水平扩展（Scale out）**＝加更多台机器，几乎无限。类比：雇更多人。互联网大厂都用水平扩展。
+- **分片（Sharding）**＝把数据切分到多台机器，每台存一部分（按 key 哈希决定去哪台）。类比：图书馆按字母 A-Z 分 26 个书架。
+
+---
+
 ## 二、核心概念澄清（问答记录）
 
 ### Q1：QPS 和 TPS 是什么？
