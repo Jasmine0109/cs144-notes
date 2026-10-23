@@ -110,6 +110,7 @@ key-value pair 就是**字典**——Python 叫 `dict`、Java 叫 `HashMap`、�
 | 每秒事务数 | TPS（Transactions Per Second） | 每秒完成多少事务 |
 | 负载均衡 | Load Balancer（LB） | 把请求分发到多台服务器 |
 | 缓存 | Cache | 热点数据放内存 |
+| Redis | Remote Dictionary Server | 远程字典服务器，基于内存的键值存储，最常用做缓存 |
 | 内容分发网络 | CDN | 就近缓存内容 |
 | 副本 | Replica | 数据库的复制品 |
 | 主库/从库 | Primary / Replica | 主库写、从库读 |
