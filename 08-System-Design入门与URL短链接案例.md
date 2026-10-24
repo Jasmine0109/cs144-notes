@@ -184,6 +184,10 @@ key-value pair 就是**字典**——Python 叫 `dict`、Java 叫 `HashMap`、�
 
 **用 hash 的数据结构：** HashMap/哈希表/字典、HashSet、布隆过滤器。
 
+**HashMap 是什么？** HashMap = 哈希表 = 字典 dict，**同一个数据结构的三种叫法**（Python 叫 dict、Java 叫 HashMap、数据结构课叫哈希表）。"Map（映射）"是抽象概念（key→value），HashMap 是用"哈希"实现它的一种方式。
+
+**底层长什么样：** 数组（桶）+ 哈希函数 + 链表（处理碰撞）。存数据 hash(key) 算出该放数组哪一格；查数据 hash(key) 直接跳过去拿，所以 O(1) 瞬间找到。两个 key 撞同一格用链表串起来。
+
 **HashMap 解决什么？** 给定 key 瞬间找到 value。场景：缓存、去重、计数、分片路由（hash % N）、负载均衡、索引。
 
 **分片存磁盘还是内存？** 分片本身是"数据分布策略"、不是存储介质。数据库分片（主库 91TB）存**磁盘**（持久）；缓存分片（Redis Cluster）存**内存**（快）。看分的是数据库还是缓存。
